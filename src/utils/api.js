@@ -1,3 +1,5 @@
+import { createForecast } from "../models/Weather";
+
 const URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const API_KEY = "ASPW622R3TTXRNM9H95M2TSNF";
@@ -13,7 +15,9 @@ export const getWeathers = async (city) => {
     }
 
     const res = await req.json();
-    return res;
+
+    const data = createForecast(res);
+    return data;
   } catch (err) {
     throw err;
   }

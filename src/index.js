@@ -26,8 +26,12 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  const weathersResult = await getWeathers(capitalizedFirstCharacter);
+  try {
+    const weathersResult = await getWeathers(capitalizedFirstCharacter);
+    console.log(weathersResult);
+  } catch (err) {
+    console.log(err + " Location not found!");
+  }
 
   locationInput.value = "";
-  console.log(weathersResult);
 });
