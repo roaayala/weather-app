@@ -4,13 +4,17 @@ const API_KEY = "ASPW622R3TTXRNM9H95M2TSNF";
 
 export const getWeathers = async (city) => {
   const url = `${URL}${city}/next6days?unitGroup=metric&iconSet=icons1&key=${API_KEY}`;
-  const req = await fetch(url);
 
   try {
-    const data = await req.json();
+    const req = await fetch(url);
 
-    return data;
+    if (!req.ok) {
+      throw new Error(`HTTP error: ${req.status}!`);
+    }
+
+    const res = await req.json();
+    return res;
   } catch (err) {
-    throw new Error(err);
+    throw err;
   }
 };
