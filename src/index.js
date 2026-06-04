@@ -1,6 +1,6 @@
 import "./style.css";
-import { getWeathersByCity } from "./utils/api";
+import { getWeathers } from "./utils/api";
 
-const weather = getWeathersByCity("Kutai Kartanegara").then((data) =>
-  console.log(data),
-);
+const weather = await getWeathers("Kutai Kartanegara");
+
+console.log(weather);

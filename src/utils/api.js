@@ -2,14 +2,13 @@ const URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const API_KEY = "ASPW622R3TTXRNM9H95M2TSNF";
 
-export const getWeathersByCity = async (city) => {
-  const req = await fetch(`${URL}${city}?key=${API_KEY}`);
+export const getWeathers = async (city) => {
+  const url = `${URL}${city}/next6days?unitGroup=metric&iconSet=icons1&key=${API_KEY}`;
+  const req = await fetch(url);
+
   try {
     const data = await req.json();
-    const weathersInfo = {
-      location: data.address,
-      description: data.description,
-    };
+
     return data;
   } catch (err) {
     throw new Error(err);
