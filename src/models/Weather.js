@@ -1,19 +1,19 @@
-export function WeatherInfo(address, data = {}) {
-  const city = address;
+export function createWeather(city, data = {}) {
+  const { conditions, icon, datetime: date, precipprob: chance } = data;
 
-  const conditions = data.conditions;
-
-  const icon = data.icon;
-
-  const date = data.datetime;
-
-  const chance = data.precipprob;
-
-  const temperaturs = {
+  const temperature = {
     average: data.temp,
     min: data.tempmin,
     max: data.tempmax,
   };
 
-  return {};
+  return { city, conditions, icon, date, chance, temperature };
+}
+
+export function createForecast(data = {}) {
+  const { address: city, description, days } = data;
+
+  const forecasts = days.map((day) => createWeather(city, day));
+
+  return { city, description, forecasts };
 }
