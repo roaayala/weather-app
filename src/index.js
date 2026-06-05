@@ -20,7 +20,13 @@ form.addEventListener("submit", async (e) => {
     const weathersResult = await getWeathers(filteredSearchTerm);
     console.log(weathersResult);
   } catch (err) {
-    console.log(err);
+    if (err.message === "400") {
+      console.log(
+        `Location not found, are you sure ${filteredSearchTerm} is right location?`,
+      );
+
+      locationInput.value = "";
+    }
   }
 
   locationInput.value = "";

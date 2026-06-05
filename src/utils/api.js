@@ -11,7 +11,7 @@ export const getWeathers = async (city) => {
     const req = await fetch(url);
 
     if (!req.ok) {
-      throw new Error(`HTTP error: ${req.status}!`);
+      throw new Error(req.status);
     }
 
     const res = await req.json();
