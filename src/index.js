@@ -33,9 +33,10 @@ form.addEventListener("submit", async (e) => {
     clearAppContainer();
   } catch (err) {
     if (err.message === "400") {
-      const errorMessage = createErrorMessage(
-        `Location not found, are you sure ${filteredSearchTerm} is valid location?`,
-      );
+      const errorMessage = createErrorMessage({
+        icon: "not_listed_location",
+        message: `Location not found, are you sure ${filteredSearchTerm} is valid location?`,
+      });
 
       clearAppContainer();
 
