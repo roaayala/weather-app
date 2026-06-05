@@ -1,7 +1,8 @@
-import createErrorMessage from "./components/ErrorMessage";
 import "./style.css";
 import { getWeathers } from "./utils/api";
 import { capitalizedFirstCharacter, trimString } from "./utils/helper";
+import createCurrentWeather from "./components/CurrentWeather";
+import createErrorMessage from "./components/ErrorMessage";
 
 const form = document.getElementById("form");
 const locationInput = document.getElementById("location");
@@ -27,10 +28,18 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
+  // loading
+  appContainer.textContent = "Loading...";
+
   try {
     const weathersResult = await getWeathers(filteredSearchTerm);
-    console.log(weathersResult);
+
+    const currentWeatherInfo = weathersResult.forecasts[0];
+    const currentWeather = createCurrentWeather(currentWeatherInfo);
+
     clearAppContainer();
+
+    appContainer.append(currentWeather);
   } catch (err) {
     if (err.message === "400") {
       const errorMessage = createErrorMessage({
