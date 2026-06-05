@@ -1,36 +1,26 @@
 import "./style.css";
 import { getWeathers } from "./utils/api";
+import { capitalizedFirstCharacter, trimString } from "./utils/helper";
 
 const form = document.getElementById("form");
 const locationInput = document.getElementById("location");
-const searchButton = document.getElementById("search");
-
-locationInput.addEventListener("blur", (e) => {});
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const trimmedLocation = locationInput.value.trim();
-  const capitalizedFirstCharacter = trimmedLocation
-    .split("")
-    .map((char, index) => {
-      if (index === 0) {
-        char = char.toUpperCase();
-        return char;
-      }
-      return char;
-    })
-    .join("");
+  const trimmedSearchTerm = trimString(locationInput.value);
 
-  if (!capitalizedFirstCharacter) {
+  const filteredSearchTerm = capitalizedFirstCharacter(trimmedSearchTerm);
+
+  if (!filteredSearchTerm) {
     return;
   }
 
   try {
-    const weathersResult = await getWeathers(capitalizedFirstCharacter);
+    const weathersResult = await getWeathers(filteredSearchTerm);
     console.log(weathersResult);
   } catch (err) {
-    console.log(err + " Location not found!");
+    console.log(err);
   }
 
   locationInput.value = "";
