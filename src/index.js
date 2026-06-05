@@ -3,6 +3,7 @@ import { getWeathers } from "./utils/api";
 import { capitalizedFirstCharacter, trimString } from "./utils/helper";
 import createCurrentWeather from "./components/CurrentWeather";
 import createErrorMessage from "./components/ErrorMessage";
+import createLoading from "./components/Loading";
 
 const form = document.getElementById("form");
 const locationInput = document.getElementById("location");
@@ -29,7 +30,10 @@ form.addEventListener("submit", async (e) => {
   }
 
   // loading
-  appContainer.textContent = "Loading...";
+  //
+  const loading = createLoading();
+  clearAppContainer();
+  appContainer.append(loading);
 
   try {
     const weathersResult = await getWeathers(filteredSearchTerm);
