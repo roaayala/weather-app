@@ -8,10 +8,10 @@
     gap: 1rem;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 30rem) {
     .container {
         padding: 0;
-        max-width: 540px;
+        max-width: 25rem;
         margin: 0 auto;
     }
 }
@@ -73,6 +73,20 @@
     gap: 1rem;
 }
 
+.forecasts {
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.forecasts-header__title {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 .forecasts-main {
     display: flex;
     flex-direction: column;
@@ -83,13 +97,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+}
+
+.forecasts-item__date {
+    /*width: 6rem;*/
+    flex: 2;
+    text-align: left;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .forecasts-item > .icon {
+    flex: 1;
+    text-align: left;
     font-size: 2rem;
 }
 
 .forecasts-item__temperatures {
+    flex: 6;
+
     display: flex;
     gap: 1rem;
+}
+
+.forecasts-item__temperature {
+    width: 5rem;
+    /*flex: 1;*/
+    text-align: left;
 }
