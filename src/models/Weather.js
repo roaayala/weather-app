@@ -12,6 +12,7 @@ export function createWeather(city, data = {}) {
 
 export function createForecast(data = {}) {
   const { address: city, description, days } = data;
+  // const unitGroup = unit ? "metric" : "us";
 
   const forecasts = days.map((day) => createWeather(city, day));
 

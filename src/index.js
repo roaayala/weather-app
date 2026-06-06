@@ -9,6 +9,8 @@ const form = document.getElementById("form");
 const locationInput = document.getElementById("location");
 const appContainer = document.getElementById("app");
 
+let isMetric = true;
+
 const resetLocationInput = () => {
   locationInput.value = "";
 };
@@ -36,10 +38,10 @@ form.addEventListener("submit", async (e) => {
   appContainer.append(loading);
 
   try {
-    const weathersResult = await getWeathers(filteredSearchTerm);
+    const weathersResult = await getWeathers(isMetric, filteredSearchTerm);
 
     const currentWeatherInfo = weathersResult.forecasts[0];
-    const currentWeather = createCurrentWeather(currentWeatherInfo);
+    const currentWeather = createCurrentWeather(isMetric, currentWeatherInfo);
 
     clearAppContainer();
 
