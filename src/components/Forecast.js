@@ -13,7 +13,7 @@ export default function createForecast(isMetric, weathersResult) {
 
   const forecastsHeaderTitle = document.createElement("h2");
   forecastsHeaderTitle.className = "forecasts-header__title";
-  forecastsHeaderTitle.textContent = description;
+  forecastsHeaderTitle.textContent = `7-days forecast: ${description}`;
 
   forecastsHeader.append(forecastsHeaderTitle);
 
