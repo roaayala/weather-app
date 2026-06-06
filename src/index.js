@@ -5,7 +5,6 @@ import createCurrentWeather from "./components/CurrentWeather";
 import createErrorMessage from "./components/ErrorMessage";
 import createLoading from "./components/Loading";
 import createForecast from "./components/Forecast";
-import { constructFrom } from "date-fns/fp";
 
 const form = document.getElementById("form");
 const locationInput = document.getElementById("location");

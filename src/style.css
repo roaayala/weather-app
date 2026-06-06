@@ -1,1 +1,30 @@
 @import url("./styles/reset.css");
+
+.container {
+    height: 100vh;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+    .container {
+        padding: 0;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+}
+
+#app {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.search {
+    flex: 1;
+}
