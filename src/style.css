@@ -1,7 +1,7 @@
 @import url("./styles/reset.css");
 
 .container {
-    height: 100vh;
+    min-height: 100vh;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
 @media screen and (min-width: 30rem) {
     .container {
         padding: 0;
-        max-width: 25rem;
+        max-width: 28rem;
         margin: 0 auto;
     }
 }
@@ -21,6 +21,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    padding-bottom: 4rem;
 }
 
 .form-group {
@@ -63,7 +65,7 @@
 }
 
 .current-weather__conditions > .icon {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .current-weather__min-max-temperature {
@@ -90,41 +92,42 @@
 .forecasts-main {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /*gap: 1rem;*/
 }
 
 .forecasts-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .forecasts-item__date {
-    /*width: 6rem;*/
-    flex: 2;
-    text-align: left;
+    flex: 1;
 
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .forecasts-item > .icon {
+    /*width: 4rem;*/
     flex: 1;
-    text-align: left;
+    text-align: center;
     font-size: 2rem;
 }
 
 .forecasts-item__temperatures {
-    flex: 6;
+    flex: 2;
 
     display: flex;
+    justify-content: flex-end;
+
     gap: 1rem;
 }
 
 .forecasts-item__temperature {
     width: 5rem;
-    /*flex: 1;*/
     text-align: left;
 }
