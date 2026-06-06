@@ -21,10 +21,15 @@ const clearAppContainer = () => {
   resetLocationInput();
 };
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+const updateWeatherInfo = async (e) => {
+  let trimmedSearchTerm = "";
 
-  const trimmedSearchTerm = trimString(locationInput.value);
+  if (e) {
+    e.preventDefault();
+    trimmedSearchTerm = trimString(locationInput.value);
+  } else {
+    trimmedSearchTerm = trimString("Samarinda");
+  }
 
   const filteredSearchTerm = capitalizedFirstCharacter(trimmedSearchTerm);
 
@@ -61,4 +66,10 @@ form.addEventListener("submit", async (e) => {
       appContainer.append(errorMessage);
     }
   }
+};
+
+form.addEventListener("submit", (e) => {
+  updateWeatherInfo(e);
 });
+
+updateWeatherInfo();
