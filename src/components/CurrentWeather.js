@@ -13,9 +13,9 @@ export default function createCurrentWeather(isMetric, weatherInfo = {}) {
   currentCity.className = "current-weather__city";
   currentCity.textContent = city;
 
-  const currentTemperature = document.createElement("span");
-  currentTemperature.className = "current-weather__temperature";
-  currentTemperature.textContent = `${temperature.average} ${temperatureSymbol}`;
+  const currentAverageTemperature = document.createElement("span");
+  currentAverageTemperature.className = "current-weather__average-temperature";
+  currentAverageTemperature.textContent = `${temperature.average} ${temperatureSymbol}`;
 
   const currentConditions = document.createElement("div");
   currentConditions.className = "current-weather__conditions";
@@ -28,6 +28,24 @@ export default function createCurrentWeather(isMetric, weatherInfo = {}) {
 
   currentConditions.append(currentConditionsIcon, currentConditionsText);
 
-  currentWeather.append(currentCity, currentTemperature, currentConditions);
+  const currentMinMaxTemperature = document.createElement("div");
+  currentMinMaxTemperature.className = "current-weather__min-max-temperature";
+
+  const currentMinTemperature = document.createElement("span");
+  currentMinTemperature.className = "current-weather__min-temperature";
+  currentMinTemperature.textContent = `L: ${temperature.min} ${temperatureSymbol}`;
+
+  const currentMaxTemperature = document.createElement("span");
+  currentMaxTemperature.className = "current-weather__max-temperature";
+  currentMaxTemperature.textContent = `H: ${temperature.max} ${temperatureSymbol}`;
+
+  currentMinMaxTemperature.append(currentMinTemperature, currentMaxTemperature);
+
+  currentWeather.append(
+    currentCity,
+    currentAverageTemperature,
+    currentConditions,
+    currentMinMaxTemperature,
+  );
   return currentWeather;
 }
