@@ -4,8 +4,9 @@ const URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const API_KEY = "ASPW622R3TTXRNM9H95M2TSNF";
 
-export const getWeathers = async (city) => {
-  const url = `${URL}${city}/next6days?unitGroup=metric&iconSet=icons1&key=${API_KEY}`;
+export const getWeathers = async (unitGroup, city) => {
+  // check for unit group
+  const url = `${URL}${city}/next6days?unitGroup=${unitGroup ? "metric" : "us"}}&iconSet=icons1&key=${API_KEY}`;
 
   try {
     const req = await fetch(url);

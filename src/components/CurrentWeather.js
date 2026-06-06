@@ -8,6 +8,13 @@ export default function createCurrentWeather(weatherInfo = {}) {
   currentCity.className = "current-weather__city";
   currentCity.textContent = city;
 
-  currentWeather.append(currentCity);
+  const currentTemperature = document.createElement("span");
+  currentTemperature.className = "current-weather__temperature";
+  currentTemperature.textContent = `${temperature.average} \u00B0C`;
+
+  currentWeather.append(currentCity, currentTemperature);
   return currentWeather;
 }
+
+// celcius symbol \u00B0C
+// fahrenheit symbol \u2109
