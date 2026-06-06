@@ -23,7 +23,7 @@ export default function createCurrentWeather(isMetric, weatherInfo = {}) {
   const currentConditionsIcon = createIcon(chooseWeatherIcon(icon));
 
   const currentConditionsText = document.createElement("p");
-  currentConditionsText.className = "current-weather__conditions";
+  currentConditionsText.className = "current-weather__conditions-text";
   currentConditionsText.textContent = conditions;
 
   currentConditions.append(currentConditionsIcon, currentConditionsText);
@@ -44,8 +44,8 @@ export default function createCurrentWeather(isMetric, weatherInfo = {}) {
   currentWeather.append(
     currentCity,
     currentAverageTemperature,
-    currentConditions,
     currentMinMaxTemperature,
+    currentConditions,
   );
   return currentWeather;
 }

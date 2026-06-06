@@ -18,6 +18,9 @@
 
 #app {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-group {
@@ -27,6 +30,47 @@
 
 .search {
     flex: 1;
+}
+
+.current-weather {
+    text-align: center;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.current-weather__city {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    /*text-transform: uppercase;*/
+}
+
+.current-weather__average-temperature {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.current-weather__conditions {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather__conditions > .icon {
+    font-size: 2rem;
+}
+
+.current-weather__min-max-temperature {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .forecasts-main {
