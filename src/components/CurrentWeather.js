@@ -1,3 +1,6 @@
+import { chooseWeatherIcon } from "../utils/helper";
+import createIcon from "./Icon";
+
 export default function createCurrentWeather(isMetric, weatherInfo = {}) {
   const { city, date, icon, conditions, chance, temperature } = weatherInfo;
 
@@ -14,6 +17,17 @@ export default function createCurrentWeather(isMetric, weatherInfo = {}) {
   currentTemperature.className = "current-weather__temperature";
   currentTemperature.textContent = `${temperature.average} ${temperatureSymbol}`;
 
-  currentWeather.append(currentCity, currentTemperature);
+  const currentConditions = document.createElement("div");
+  currentConditions.className = "current-weather__conditions";
+
+  const currentConditionsIcon = createIcon(chooseWeatherIcon(icon));
+
+  const currentConditionsText = document.createElement("p");
+  currentConditionsText.className = "current-weather__conditions";
+  currentConditionsText.textContent = conditions;
+
+  currentConditions.append(currentConditionsIcon, currentConditionsText);
+
+  currentWeather.append(currentCity, currentTemperature, currentConditions);
   return currentWeather;
 }
