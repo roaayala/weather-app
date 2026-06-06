@@ -39,6 +39,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const weathersResult = await getWeathers(isMetric, filteredSearchTerm);
+    console.log(weathersResult);
 
     const currentWeatherInfo = weathersResult.forecasts[0];
     const currentWeather = createCurrentWeather(isMetric, currentWeatherInfo);
