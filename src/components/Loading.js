@@ -6,7 +6,7 @@ export default function createLoading() {
 
   const loadingIcon = createIcon("refresh");
 
-  const loadingText = document.createElement("span");
+  const loadingText = document.createElement("p");
   loadingText.className = "loading__text";
   loadingText.textContent = "Loading...";
 

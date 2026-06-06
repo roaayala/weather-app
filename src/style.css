@@ -141,14 +141,17 @@
     text-align: left;
 }
 
-.error-message {
+.error-message,
+.loading {
     text-align: center;
 }
 
-.error-message > .icon {
+.error-message > .icon,
+.loading > .icon {
     font-size: 6rem;
 }
 
-.error-message__text-message {
+.error-message__text-message,
+.loading__text {
     font-size: 1.5rem;
 }
