@@ -15,6 +15,10 @@ export function capitalizedFirstCharacter(string) {
     .join("");
 }
 
+export function setUnitGroup(isMetric) {
+  return isMetric ? "\u00B0C" : "\u2109";
+}
+
 export function chooseWeatherIcon(icon) {
   const weatherIcon = {
     snow: "weather_snowy",

@@ -1,10 +1,10 @@
-import { chooseWeatherIcon } from "../utils/helper";
+import { chooseWeatherIcon, setUnitGroup } from "../utils/helper";
 import createIcon from "./Icon";
 
 export default function createCurrentWeather(isMetric, weatherInfo = {}) {
-  const { city, date, icon, conditions, chance, temperature } = weatherInfo;
+  const { city, icon, conditions, temperature } = weatherInfo;
 
-  const temperatureSymbol = isMetric ? "\u00B0C" : "\u2109";
+  const temperatureSymbol = setUnitGroup(isMetric);
 
   const currentWeather = document.createElement("div");
   currentWeather.className = "current-weather";

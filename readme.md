@@ -12,4 +12,4 @@
 - Partly cloudy day: partly_cloudy_day
 - Partly cloudy night: partly_cloudy_night
 - Clear day: clear_day
-- Clear night: moon_starts
+- Clear night: moon_stars

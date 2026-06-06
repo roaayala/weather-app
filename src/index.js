@@ -4,6 +4,8 @@ import { capitalizedFirstCharacter, trimString } from "./utils/helper";
 import createCurrentWeather from "./components/CurrentWeather";
 import createErrorMessage from "./components/ErrorMessage";
 import createLoading from "./components/Loading";
+import createForecast from "./components/Forecast";
+import { constructFrom } from "date-fns/fp";
 
 const form = document.getElementById("form");
 const locationInput = document.getElementById("location");
@@ -39,14 +41,15 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const weathersResult = await getWeathers(isMetric, filteredSearchTerm);
-    console.log(weathersResult);
 
     const currentWeatherInfo = weathersResult.forecasts[0];
     const currentWeather = createCurrentWeather(isMetric, currentWeatherInfo);
 
+    const currentForecast = createForecast(isMetric, weathersResult);
+
     clearAppContainer();
 
-    appContainer.append(currentWeather);
+    appContainer.append(currentWeather, currentForecast);
   } catch (err) {
     if (err.message === "400") {
       const errorMessage = createErrorMessage({
